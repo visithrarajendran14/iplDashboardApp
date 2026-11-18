@@ -1,7 +1,7 @@
 import './index.css'
 
 const LatestMatch = props => {
-  const {latestMatch} = props
+  const {latestMatchDetails} = props
   const {
     competingTeam,
     competingTeamLogo,
@@ -12,36 +12,31 @@ const LatestMatch = props => {
     secondInnings,
     manOfTheMatch,
     umpires,
-  } = latestMatch
-
+  } = latestMatchDetails
   return (
     <div className="latest-match-container">
-      <h1 className="latest-heading">Latest Matches</h1>
-      <div className="latest-match-card">
-        <div>
-          <p className="competing-team">{competingTeam}</p>
-          <p className="date">{date}</p>
-          <p className="venue">{venue}</p>
-          <p className="result">{result}</p>
-        </div>
-        <img
-          src={competingTeamLogo}
-          alt={`latest match ${competingTeam}`}
-          className="latest-logo"
-        />
+      <div className="latest-match-left">
+        <p className="competing-team">{competingTeam}</p>
+        <p className="date">{date}</p>
+        <p className="venue">{venue}</p>
+        <p className="result">{result}</p>
       </div>
-      <div className="more-details">
-        <p className="label">First Innings</p>
+      <img
+        src={competingTeamLogo}
+        alt={`latest match ${competingTeam}`}
+        className="competing-team-logo"
+      />
+      <div className="latest-match-right">
+        <p className="heading">First Innings</p>
         <p className="value">{firstInnings}</p>
-        <p className="label">Second Innings</p>
+        <p className="heading">Second Innings</p>
         <p className="value">{secondInnings}</p>
-        <p className="label">Man Of The Match</p>
+        <p className="heading">Man Of The Match</p>
         <p className="value">{manOfTheMatch}</p>
-        <p className="label">Umpires</p>
+        <p className="heading">Umpires</p>
         <p className="value">{umpires}</p>
       </div>
     </div>
   )
 }
-
 export default LatestMatch

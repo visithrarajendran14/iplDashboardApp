@@ -4,6 +4,13 @@ const MatchCard = props => {
   const {matchDetails} = props
   const {competingTeam, competingTeamLogo, result, matchStatus} = matchDetails
 
+  let statusClass = 'drawn'
+  if (matchStatus === 'Won') {
+    statusClass = 'won'
+  } else if (matchStatus === 'Lost') {
+    statusClass = 'lost'
+  }
+
   return (
     <li className="match-card">
       <img
@@ -11,9 +18,9 @@ const MatchCard = props => {
         alt={`competing team ${competingTeam}`}
         className="match-card-logo"
       />
-      <p className="team-name">{competingTeam}</p>
-      <p className="result-text">{result}</p>
-      <p className="status">{matchStatus}</p>
+      <p className="match-card-team">{competingTeam}</p>
+      <p className="match-card-result">{result}</p>
+      <p className={`match-status ${statusClass}`}>{matchStatus}</p>
     </li>
   )
 }
